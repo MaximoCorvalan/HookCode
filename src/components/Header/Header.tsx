@@ -1,6 +1,6 @@
 import type { NavigationItem } from '../../interfaces/NavigationItem'
 import './Header.css'
-const links: NavigationItem[] = [ { id: 'contacto', label: 'Contacto' }, { id: 'servicios', label: 'Servicios' }, { id: 'nosotros', label: 'Nosotros' } ]
+const links: NavigationItem[] = [ { id: 'contacto', label: 'Contacto' }, { id: 'servicios', label: 'Servicios' }, { id: 'nosotros', label: 'Nosotros' }, { id: 'clientes', label: 'Clientes' } ]
 
 /** Aparece después de la portada y permanece arriba mediante position: sticky. */
 export default function Header() {
