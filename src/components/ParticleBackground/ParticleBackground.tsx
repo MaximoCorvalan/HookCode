@@ -64,11 +64,11 @@ export default function ParticleBackground() {
       canvas.width = Math.round(width * ratio)
       canvas.height = Math.round(height * ratio)
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
-      const maxParticles = width <= 600 ? 85 : 140
+      const maxParticles = width <= 600 ? 85 : 425
       nodes = Array.from({ length: Math.min(maxParticles, Math.max(24, Math.floor(width * height / 3000))) }, () => ({
         x: Math.random() * width, y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.36, vy: (Math.random() - 0.5) * 0.36,
-        radius: 1.5 + Math.random() * 1.8,
+        radius: 1.5 + Math.random() * 2,
       }))
       draw(0)
     }
