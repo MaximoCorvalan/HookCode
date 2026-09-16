@@ -1,0 +1,8 @@
+/* Sticky conserva el espacio del header para evitar saltos en la página. */
+.site-header { position: sticky; top: 0; z-index: 10; min-height: 86px; padding: 20px 6vw; display: flex; justify-content: space-between; align-items: center; gap: 24px; background: #10252af5; color: #fff; backdrop-filter: blur(16px); border-bottom: 1px solid #294348; }
+.site-header__brand { font-size: 1.7rem; font-weight: 750; letter-spacing: -0.06em; text-decoration: none; }
+.site-header__brand span { color: #28d4b7; }
+.site-header nav { display: flex; gap: clamp(18px, 4vw, 48px); }
+.site-header nav a { text-decoration: none; font-size: 1rem; padding-block: 8px; border-bottom: 1px solid transparent; }
+.site-header nav a:hover { color: #50e3c9; border-color: currentColor; }
+@media (max-width: 520px) { .site-header { padding: 16px 18px; flex-wrap: wrap; gap: 8px; } .site-header__brand { font-size: 1.4rem; } .site-header nav { gap: 16px; } .site-header nav a { font-size: 0.875rem; } }

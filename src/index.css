@@ -1,0 +1,8 @@
+/* Estilos base compartidos por toda la aplicación. */
+:root { font-family: 'Segoe UI', Arial, sans-serif; color: #15262c; background: #f5faf9; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+body { margin: 0; min-width: 320px; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid #00b49d; outline-offset: 5px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
