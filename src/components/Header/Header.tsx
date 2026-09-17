@@ -1,7 +1,7 @@
 import type { NavigationItem } from '../../interfaces/NavigationItem'
 import './Header.css'
 // Fuente de los enlaces: cada id debe coincidir con el id de una sección de Home.
-const links: NavigationItem[] = [ { id: 'contacto', label: 'Contacto' }, { id: 'servicios', label: 'Servicios' }, { id: 'nosotros', label: 'Nosotros' }, { id: 'clientes', label: 'Clientes' } ]
+const links: NavigationItem[] = [ { id: 'contacto', label: 'Contacto' }, { id: 'servicios', label: 'Servicios' }, { id: 'nosotros', label: 'Nosotros' }, { id: 'servicios', label: 'Servicios' },{ id: 'nosotros', label: 'Nosotros' },{ id: 'contacto', label: 'Contacto' }, ]
 
 /** Aparece después de la portada y permanece arriba mediante position: sticky. */
 export default function Header() {
