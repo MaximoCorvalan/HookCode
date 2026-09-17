@@ -1,1 +1,6 @@
-#root { min-height: 100vh; }
+/* Garantiza que el contenedor de React ocupe al menos una pantalla. */
+
+#root
+{
+  min-height: 100vh;
+}

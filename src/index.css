@@ -1,8 +1,61 @@
 /* Estilos base compartidos por toda la aplicación. */
-:root { font-family: 'Segoe UI', Arial, sans-serif; color: #15262c; background: #f5faf9; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 120px; }
-body { margin: 0; min-width: 320px; }
-a { color: inherit; }
-a:focus-visible { outline: 3px solid #00b49d; outline-offset: 5px; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Define tipografía, colores y opciones de renderizado heredadas por la página. */
+
+:root
+{
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #15262c;
+  background: #f5faf9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Incluye bordes y rellenos dentro del ancho y alto declarados. */
+
+*
+{
+  box-sizing: border-box;
+}
+
+/* Suaviza los enlaces internos y reserva espacio para el encabezado sticky. */
+
+html
+{
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+/* Quita el margen del navegador y establece el ancho mínimo de diseño. */
+
+body
+{
+  margin: 0;
+  min-width: 320px;
+}
+
+/* Hace que los enlaces hereden el color de su contenedor. */
+
+a
+{
+  color: inherit;
+}
+
+/* Señal visible de foco para navegación por teclado. */
+
+a:focus-visible
+{
+  outline: 3px solid #00b49d;
+  outline-offset: 5px;
+}
+
+/* Regla existente: desactiva el movimiento de este bloque cuando el sistema lo solicita. */
+
+@media (prefers-reduced-motion: reduce)
+{
+  html
+  {
+    scroll-behavior: auto;
+  }
+}

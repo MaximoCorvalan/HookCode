@@ -4,18 +4,23 @@ import './ParticleBackground.css'
 
 /** Canvas decorativo: anima sin provocar un render de React por cuadro. */
 export default function ParticleBackground() {
+  // Referencia al canvas real: permite dibujar sin almacenar cada cuadro en estado React.
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  // Inicializa la simulación después del montaje y libera todos sus recursos al salir.
   useEffect(() => {
     const canvas = canvasRef.current
     const surface = canvas?.parentElement
     const ctx = canvas?.getContext('2d')
     if (!canvas || !surface || !ctx) return
+    // La preferencia del sistema afecta únicamente a la animación de las partículas.
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
     const pointer: ParticlePointer = { x: 0, y: 0, active: false }
+    // Datos mutables de la simulación; frame guarda la solicitud de animación pendiente.
     let nodes: Particle[] = []
     let width = 0, height = 0, frame = 0, previous = 0
     let visible = true
 
+    /** Avanza la simulación y dibuja nodos y conexiones. step=0 dibuja sin mover. */
     function draw(step: number) {
       if (!ctx) return
       ctx.clearRect(0, 0, width, height)
@@ -31,11 +36,13 @@ export default function ParticleBackground() {
           node.x += dx / distance * force
           node.y += dy / distance * force
         }
+        // Invierte la velocidad al tocar un borde y mantiene el nodo dentro del canvas.
         if (node.x < 0 || node.x > width) node.vx *= -1
         if (node.y < 0 || node.y > height) node.vy *= -1
         node.x = Math.max(0, Math.min(width, node.x))
         node.y = Math.max(0, Math.min(height, node.y))
       }
+      // Compara cada par una sola vez; une nodos hasta 150 px y atenúa según distancia.
       for (let i = 0; i < nodes.length; i++) {
         const node = nodes[i]
         for (let j = i + 1; j < nodes.length; j++) {
@@ -49,12 +56,14 @@ export default function ParticleBackground() {
           ctx.lineTo(next.x, next.y)
           ctx.stroke()
         }
+        // Dibuja el punto sobre las conexiones ya trazadas para este nodo.
         ctx.fillStyle = 'rgba(0,156,140,0.5)'
         ctx.beginPath()
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
         ctx.fill()
       }
     }
+    /** Ajusta resolución y escala al contenedor y vuelve a generar la red. */
     function resize() {
       if (!canvas || !ctx || !surface) return
       width = surface.clientWidth
@@ -64,6 +73,7 @@ export default function ParticleBackground() {
       canvas.width = Math.round(width * ratio)
       canvas.height = Math.round(height * ratio)
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
+      // Cantidad proporcional al área: entre 24 y el límite móvil/escritorio.
       const maxParticles = width <= 600 ? 85 : 425
       nodes = Array.from({ length: Math.min(maxParticles, Math.max(24, Math.floor(width * height / 3000))) }, () => ({
         x: Math.random() * width, y: Math.random() * height,
@@ -72,6 +82,7 @@ export default function ParticleBackground() {
       }))
       draw(0)
     }
+    /** Bucle requestAnimationFrame; time es la marca temporal del navegador en ms. */
     function animate(time: number) {
       // Velocidad independiente de la frecuencia de actualización de la pantalla.
       const step = previous ? Math.min((time - previous) / 16.667, 2) : 1
@@ -79,6 +90,7 @@ export default function ParticleBackground() {
       draw(step)
       frame = requestAnimationFrame(animate)
     }
+    /** Detiene el cuadro pendiente y reinicia solo si la portada puede animarse. */
     function playback() {
       cancelAnimationFrame(frame)
       previous = 0
@@ -86,6 +98,7 @@ export default function ParticleBackground() {
       if (!motion.matches && visible && !document.hidden) frame = requestAnimationFrame(animate)
       else draw(0)
     }
+    /** Convierte el puntero a coordenadas locales; el tacto no activa la repulsión. */
     function move(event: PointerEvent) {
       if (!surface) return
       const bounds = surface.getBoundingClientRect()
@@ -93,11 +106,14 @@ export default function ParticleBackground() {
       pointer.y = event.clientY - bounds.top
       pointer.active = event.pointerType !== 'touch'
     }
+    /** Desactiva la fuerza del cursor cuando abandona la portada. */
     function leave() { pointer.active = false }
+    // Observa tamaño y visibilidad sin medir continuamente durante el render de React.
     const resizeObserver = new ResizeObserver(resize)
     const visibilityObserver = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; playback() })
     resizeObserver.observe(surface)
     visibilityObserver.observe(surface)
+    // Registra la interacción y los cambios de visibilidad/preferencias.
     surface.addEventListener('pointermove', move)
     surface.addEventListener('pointerleave', leave)
     motion.addEventListener('change', playback)
@@ -113,5 +129,6 @@ export default function ParticleBackground() {
       document.removeEventListener('visibilitychange', playback)
     }
   }, [])
+  // Es decorativo: aria-hidden evita anunciar el canvas a lectores de pantalla.
   return <canvas ref={canvasRef} className="particle-background" aria-hidden="true" />
 }

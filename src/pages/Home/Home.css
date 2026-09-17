@@ -1,9 +1,85 @@
-.home-content { max-width: 1200px; padding: 0 6vw; margin: auto; animation: content-reveal 900ms cubic-bezier(.22, 1, .36, 1) 3000ms both; }
+/* Centra las secciones y aplica su aparición tras una espera de 3 s. */
+
+.home-content
+{
+  max-width: 1200px;
+  padding: 0 6vw;
+  margin: auto;
+  animation: content-reveal 900ms cubic-bezier(.22, 1, .36, 1) 3000ms both;
+}
+
 /* Espacio provisional para probar navegación y sticky sin inventar contenido. */
-.home-section { min-height: 65vh; padding: 80px 0; border-bottom: 1px solid #d6e5e0; }
-.home-section > span { color: #008675; font-size: 0.875rem; letter-spacing: 0.1em; }
-.home-section h2 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 500; letter-spacing: -0.04em; margin: 16px 0; }
-@keyframes content-reveal { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-.skip-link { position: fixed; top: -100px; left: 16px; padding: 12px 20px; z-index: 20; background: white; }
-.skip-link:focus { top: 16px; }
-@media (prefers-reduced-motion: reduce) { .home-content { animation: none; } }
+
+/* Reserva altura para cada sección y la separa visualmente con una línea. */
+
+.home-section
+{
+  min-height: 65vh;
+  padding: 80px 0;
+  border-bottom: 1px solid #d6e5e0;
+}
+
+/* Formato del número decorativo de sección. */
+
+.home-section > span
+{
+  color: #008675;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+/* Título con tamaño adaptable al ancho de pantalla. */
+
+.home-section h2
+{
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  margin: 16px 0;
+}
+
+/* Hace aparecer el contenido desde 40 px por debajo. */
+
+@keyframes content-reveal
+{
+  from
+  {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to
+  {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enlace para saltar al contenido: permanece fuera de pantalla hasta recibir foco. */
+
+.skip-link
+{
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  padding: 12px 20px;
+  z-index: 20;
+  background: white;
+}
+
+/* Muestra el acceso directo cuando se navega con el teclado. */
+
+.skip-link:focus
+{
+  top: 16px;
+}
+
+/* Regla existente: desactiva el movimiento de este bloque cuando el sistema lo solicita. */
+
+@media (prefers-reduced-motion: reduce)
+{
+  .home-content
+  {
+    animation: none;
+  }
+}

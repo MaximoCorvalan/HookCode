@@ -5,9 +5,12 @@ import './Home.css'
 /** Composición de la página. Los destinos quedan listos para las próximas etapas. */
 export default function Home() {
   return <>
+    {/* Acceso por teclado para evitar recorrer toda la portada. */}
     <a className="skip-link" href="#servicios">Saltar la portada</a>
+    {/* El orden coloca el encabezado después de la presentación dentro del flujo. */}
     <HookCode />
     <Header />
+    {/* Los id reciben los enlaces internos; aria-labelledby asocia cada sección a su título. */}
     <main className="home-content">
       {/* Solo títulos por ahora: no adelantamos el contenido de las próximas secciones. */}
       <section id="servicios" className="home-section" aria-labelledby="services-title"><span aria-hidden="true">01 /</span><h2 id="services-title">Servicios</h2></section>
