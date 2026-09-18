@@ -13,10 +13,10 @@
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  background: #c1dfdb;
-  color: #29414b;
+  background: #e4f2ef;
+  color: #17323a;
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid #3d6c75;
+  border-bottom: 1px solid #b8d9d2;
   animation: header-reveal 700ms cubic-bezier(.22, 1, .36, 1) 3000ms both;
 }
 
@@ -38,11 +38,12 @@
 
 .site-header__brand
 {
+  position: relative;
   display: grid;
   place-items: center;
   flex-shrink: 0;
   width: 184px;
-  padding: 6px 10px;
+  padding: 8px 12px;
   text-decoration: none;
 }
 
@@ -51,10 +52,10 @@
 {
   content: '';
   position: absolute;
-  inset: 0 -10px;
+  inset: -8px -18px;
   z-index: -1;
-  background: radial-gradient(ellipse, rgb(255 255 255 / 60%) 0%, rgb(255 255 255 / 25%) 45%, transparent 72%);
-  filter: blur(8px);
+  background: radial-gradient(ellipse, rgb(41 170 151 / 22%) 0%, rgb(255 255 255 / 48%) 42%, transparent 74%);
+  filter: blur(30px);
   pointer-events: none;
 }
 
@@ -65,6 +66,7 @@
   display: block;
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 4px 8px rgb(13 57 63 / 22%));
 }
 
 /* Distribuye los enlaces horizontalmente con separación adaptable. */
@@ -79,7 +81,7 @@
 
 .site-header nav a
 {
-  color: #183e43;
+  color: #17323a;
   text-decoration: none;
   font-size: 1.1rem;
   padding-block: 8px;
@@ -90,7 +92,7 @@
 
 .site-header nav a:hover
 {
-  color: #007f73;
+  color: #109184;
   border-color: currentColor;
 }
 
