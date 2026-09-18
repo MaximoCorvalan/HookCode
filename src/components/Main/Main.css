@@ -1,0 +1,285 @@
+/* Centra las secciones y aplica su aparición tras una espera de 3 s. */
+
+.home-content
+{
+  max-width: 1200px;
+  padding: 0 6vw;
+  margin: auto;
+  animation: content-reveal 900ms cubic-bezier(.22, 1, .36, 1) 3000ms both;
+}
+
+.home-section
+{
+  min-height: 65vh;
+  padding: 80px 0;
+  border-bottom: 1px solid #d6e5e0;
+}
+
+.home-section > span
+{
+  color: #008675;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+.home-section h2
+{
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  margin: 16px 0;
+}
+
+@keyframes content-reveal
+{
+  from
+  {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to
+  {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   SERVICES
+   ======================================== */
+
+.services-section
+{
+  padding-top: 120px;
+  padding-bottom: 140px;
+}
+
+.section-heading
+{
+  max-width: 850px;
+  margin-bottom: 72px;
+}
+
+.section-heading__number
+{
+  display: block;
+  margin-bottom: 18px;
+  color: #008675;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.section-heading__eyebrow
+{
+  margin: 0 0 14px;
+  color: #008675;
+  font-size: 0.9rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-heading h2
+{
+  max-width: 780px;
+  margin: 0;
+  font-size: clamp(2.7rem, 6vw, 5.5rem);
+  font-weight: 550;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.section-heading__description
+{
+  max-width: 680px;
+  margin: 28px 0 0;
+  color: #587076;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.services-grid
+{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.service-card
+{
+  position: relative;
+  min-height: 470px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #d7e7e3;
+  border-radius: 22px;
+  overflow: hidden;
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.service-card::before
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #00a890;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.service-card:hover
+{
+  transform: translateY(-8px);
+  border-color: #9ed8ce;
+  box-shadow: 0 24px 60px rgba(16, 37, 42, 0.10);
+}
+
+.service-card:hover::before
+{
+  transform: scaleX(1);
+}
+
+.service-card__number
+{
+  margin-bottom: 65px;
+  color: #008675;
+  font-size: 0.85rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+}
+
+.service-card__content h3
+{
+  margin: 0;
+  max-width: 280px;
+  color: #10252a;
+  font-size: clamp(1.55rem, 2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.service-card__content > p
+{
+  margin: 22px 0 30px;
+  color: #60767b;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.service-card__content ul
+{
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 11px;
+  list-style: none;
+}
+
+.service-card__content li
+{
+  position: relative;
+  padding-left: 19px;
+  color: #334b50;
+  font-size: 0.93rem;
+}
+
+.service-card__content li::before
+{
+  content: '';
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: #00a890;
+  border-radius: 50%;
+}
+
+.service-card__arrow
+{
+  position: absolute;
+  right: 26px;
+  bottom: 25px;
+  color: #008675;
+  font-size: 1.35rem;
+  transition: transform 250ms ease;
+}
+
+.service-card:hover .service-card__arrow
+{
+  transform: translate(4px, -4px);
+}
+
+@media (max-width: 950px)
+{
+  .services-grid
+  {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card
+  {
+    min-height: auto;
+    padding: 28px;
+  }
+
+  .service-card__number
+  {
+    margin-bottom: 45px;
+  }
+
+  .service-card__content
+  {
+    padding-bottom: 45px;
+  }
+}
+
+@media (max-width: 600px)
+{
+  .services-section
+  {
+    padding-top: 80px;
+    padding-bottom: 90px;
+  }
+
+  .section-heading
+  {
+    margin-bottom: 48px;
+  }
+
+  .section-heading h2
+  {
+    font-size: clamp(2.4rem, 12vw, 3.7rem);
+  }
+
+  .section-heading__description
+  {
+    margin-top: 22px;
+    font-size: 1rem;
+  }
+
+  .services-grid
+  {
+    gap: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce)
+{
+  .home-content
+  {
+    animation: none;
+  }
+}
