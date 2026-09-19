@@ -5,7 +5,7 @@ export default function Contacto()
   return (
     <section id="contacto" className="home-section contact-section" aria-labelledby="contact-title">
       <div className="contact-section__intro">
-        <span aria-hidden="true">03 /</span>
+        <span aria-hidden="true">05 /</span>
         <h2 id="contact-title">Contacto</h2>
         <p>
           Contanos qué necesitás y diseñemos juntos una solución para tu negocio.

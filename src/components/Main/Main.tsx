@@ -2,6 +2,7 @@ import './Main.css'
 
 import { services } from '../../MockData/services'
 import Contacto from '../Contacto/Contacto'
+import ComoTrabajamos from '../ComoTrabajamos/ComoTrabajamos'
 import Nosotros from '../Nosotros/Nosotros'
 import ServicesCard from '../ServicesCard/ServicesCard'
 import Tecnologias from '../Tecnologias/Tecnologias'
@@ -36,6 +37,7 @@ export default function Main() {
         </div>
       </section>
 
+      <ComoTrabajamos />
       <Tecnologias />
       <Nosotros />
       <Contacto />

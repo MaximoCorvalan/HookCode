@@ -3,7 +3,7 @@ import logo from '../../assets/HookCodeLogo-transparent.png'
 import ParticleBackground from '../ParticleBackground/ParticleBackground'
 import './Header.css'
 // Fuente de los enlaces: cada id debe coincidir con el id de una sección de Home.
-const links: NavigationItem[] = [ { id: 'servicios', label: 'Servicios' }, { id: 'tecnologias', label: 'Tecnologías' }, { id: 'nosotros', label: 'Nosotros' }, { id: 'contacto', label: 'Contacto' }, ]
+const links: NavigationItem[] = [ { id: 'servicios', label: 'Servicios' }, { id: 'como-trabajamos', label: 'Cómo trabajamos' }, { id: 'tecnologias', label: 'Tecnologías' }, { id: 'nosotros', label: 'Nosotros' }, { id: 'contacto', label: 'Contacto' }, ]
 
 /** Aparece después de la portada y permanece arriba mediante position: sticky. */
 export default function Header() {
