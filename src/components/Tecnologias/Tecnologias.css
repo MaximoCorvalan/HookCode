@@ -455,130 +455,16 @@
 
 @media (max-width: 780px) {
   .technology-network {
-    display: none;
+    display: block;
+
+    width: 100%;
+    height: 420px;
+
+    margin-top: 40px;
   }
 
   .technology-list {
-    width: 100%;
-
-    margin-top: 45px;
-
-    display: grid;
-
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-
-    gap: 12px;
-  }
-
-  .technology-list__item {
-    min-height: 72px;
-
-    padding:
-      13px 15px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-
-    background:
-      rgba(
-        255,
-        255,
-        255,
-        0.90
-      );
-
-    border:
-      1px solid
-      rgba(
-        0,
-        143,
-        128,
-        0.16
-      );
-
-    border-radius: 14px;
-
-    transition:
-      transform 180ms ease,
-      border-color 180ms ease,
-      box-shadow 180ms ease;
-  }
-
-  .technology-list__item:hover {
-    transform:
-      translateY(-2px);
-
-    border-color:
-      rgba(
-        0,
-        143,
-        128,
-        0.38
-      );
-
-    box-shadow:
-      0 10px 25px
-      rgba(
-        16,
-        37,
-        42,
-        0.06
-      );
-  }
-
-  .technology-list__icon {
-    width: 38px;
-    height: 38px;
-
-    display: grid;
-
-    place-items: center;
-
-    flex: 0 0 auto;
-
-    color: #008f80;
-  }
-
-  .technology-list__icon svg {
-    width: 25px;
-    height: 25px;
-  }
-
-  .technology-list__icon span {
-    font-size: 0.76rem;
-
-    font-weight: 800;
-  }
-
-  .technology-list__content {
-    min-width: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 2px;
-  }
-
-  .technology-list__content strong {
-    color: #10252a;
-
-    font-size: 0.9rem;
-
-    font-weight: 650;
-  }
-
-  .technology-list__content span {
-    color: #71878b;
-
-    font-size: 0.7rem;
+    display: none;
   }
 }
 
@@ -588,8 +474,8 @@
 ======================================== */
 
 @media (max-width: 480px) {
-  .technology-list {
-    grid-template-columns: 1fr;
+  .technology-network {
+    height: 360px;
   }
 }
 

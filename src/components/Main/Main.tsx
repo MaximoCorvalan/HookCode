@@ -1,6 +1,6 @@
 import './Main.css'
 
-import { services } from '../../MockData/services'
+import { services } from '../../MockData/servicesdata'
 import Contacto from '../Contacto/Contacto'
 import ComoTrabajamos from '../ComoTrabajamos/ComoTrabajamos'
 import Nosotros from '../Nosotros/Nosotros'

@@ -1,138 +1,16 @@
 import { useEffect, useRef } from 'react'
-import type { IconType } from 'react-icons'
+import type { MotionNode } from '../../interfaces/Technology'
 
-import {
-  SiDocker,
-  SiDotnet,
-  SiFastapi,
-  SiGithub,
-  SiNodedotjs,
-  SiPostgresql,
-  SiPython,
-  SiReact,
-  SiSharp,
-  SiTypescript,
-} from 'react-icons/si'
 
 import favicon from '../../assets/Favicon.png'
 import './Tecnologias.css'
 
-type TechnologySize = 'primary' | 'secondary'
+import { technologiesData } from '../../MockData/technologydata'
 
-type Technology = {
-  name: string
-  category: string
-  icon?: IconType
-  wordmark?: string
-  x: number
-  y: number
-  size: TechnologySize
-}
 
-type MotionNode = {
-  phase: number
-  speed: number
-}
 
-const technologies: Technology[] = [
-  {
-    name: 'React',
-    category: 'Frontend',
-    icon: SiReact,
-    x: 0.10,
-    y: 0.16,
-    size: 'primary',
-  },
-  {
-    name: 'Python',
-    category: 'Backend & IA',
-    icon: SiPython,
-    x: 0.90,
-    y: 0.18,
-    size: 'primary',
-  },
-  {
-    name: 'Node.js',
-    category: 'Backend',
-    icon: SiNodedotjs,
-    x: 0.94,
-    y: 0.48,
-    size: 'primary',
-  },
-  {
-    name: 'FastAPI',
-    category: 'Backend',
-    icon: SiFastapi,
-    x: 0.84,
-    y: 0.82,
-    size: 'primary',
-  },
-  {
-    name: '.NET',
-    category: 'Backend',
-    icon: SiDotnet,
-    x: 0.17,
-    y: 0.83,
-    size: 'primary',
-  },
-  {
-    name: 'C#',
-    category: 'Backend',
-    icon: SiSharp,
-    x: 0.06,
-    y: 0.48,
-    size: 'primary',
-  },
 
-  {
-    name: 'TypeScript',
-    category: 'Frontend',
-    icon: SiTypescript,
-    x: 0.31,
-    y: 0.08,
-    size: 'secondary',
-  },
-  {
-    name: 'PostgreSQL',
-    category: 'Base de datos',
-    icon: SiPostgresql,
-    x: 0.69,
-    y: 0.09,
-    size: 'secondary',
-  },
-  {
-    name: 'Docker',
-    category: 'Infraestructura',
-    icon: SiDocker,
-    x: 0.66,
-    y: 0.91,
-    size: 'secondary',
-  },
-  {
-    name: 'n8n',
-    category: 'Automatización',
-    wordmark: 'n8n',
-    x: 0.36,
-    y: 0.91,
-    size: 'secondary',
-  },
-  {
-    name: 'GitHub',
-    category: 'Desarrollo',
-    icon: SiGithub,
-    x: 0.09,
-    y: 0.69,
-    size: 'secondary',
-  },
-  {
-    name: 'Power BI',
-    category: 'Datos & Analytics',
-    wordmark: 'PBI',
-    x: 0.91,
-    y: 0.69,
-    size: 'secondary',
-  },
-]
+
 
 export default function Tecnologias() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -165,7 +43,7 @@ export default function Tecnologias() {
      *
      * Cada nodo tiene fase y velocidad diferentes.
      */
-    const motionNodes: MotionNode[] = technologies.map(
+    const motionNodes: MotionNode[] = technologiesData.map(
       (_, index) => ({
         phase: index * 1.4,
 
@@ -188,7 +66,7 @@ export default function Tecnologias() {
      * Estas seis mantienen la estructura visual
      * de la versión original.
      */
-    const primaryIndexes = technologies
+    const primaryIndexes = technologiesData
       .map((technology, index) => ({
         technology,
         index,
@@ -230,7 +108,7 @@ export default function Tecnologias() {
        *
        * De esta manera jamás se separan.
        */
-      const positions = technologies.map(
+      const positions = technologiesData.map(
         (technology, index) => {
           const motion = motionNodes[index]
 
@@ -289,7 +167,7 @@ export default function Tecnologias() {
        */
       positions.forEach((position, index) => {
         const opacity =
-          technologies[index].size ===
+          technologiesData[index].size ===
           'primary'
             ? 0.22
             : 0.12
@@ -362,7 +240,7 @@ export default function Tecnologias() {
        * Así agregamos stack sin crear una
        * telaraña de 66 líneas.
        */
-      technologies.forEach(
+      technologiesData.forEach(
         (technology, index) => {
           if (
             technology.size !==
@@ -563,7 +441,7 @@ export default function Tecnologias() {
           />
         </div>
 
-        {technologies.map(
+        {technologiesData.map(
           (technology, index) => {
             const Icon =
               technology.icon
@@ -626,7 +504,7 @@ export default function Tecnologias() {
         className="technology-list"
         aria-label="Lista de tecnologías"
       >
-        {technologies.map(
+        {technologiesData.map(
           (technology) => {
             const Icon =
               technology.icon

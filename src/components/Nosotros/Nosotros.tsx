@@ -2,6 +2,7 @@ import { SiGithub } from 'react-icons/si'
 import { FaLinkedinIn } from 'react-icons/fa6'
 import type { TeamMember } from '../../interfaces/TeamMember'
 import lucasPhoto from '../../assets/team/lucas-caceres.jpg'
+import maximoPhoto from '../../assets/team/maximo-corvalan.jpg'
 
 import './Nosotros.css'
 
@@ -44,6 +45,10 @@ const team: TeamMember[] = [
     role: 'Co-Founder · Software Engineering',
     description:
       'Desarrollador de software enfocado en aplicaciones, APIs e integraciones, con experiencia en soluciones para automatización industrial.',
+      photo: maximoPhoto  ,
+      linkedin:
+        'https://github.com/MaximoCorvalan',
+      github: 'https://github.com/MaximoCorvalan',
   },
   {
     name: 'Juan Pablo Coceres',
