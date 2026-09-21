@@ -148,6 +148,10 @@ export default function Tecnologias() {
       return
     }
 
+    const ctx = context
+    const container = surface
+    const canvasEl = canvas
+
     const reducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     )
@@ -202,24 +206,16 @@ export default function Tecnologias() {
       toY: number,
       opacity: number,
     ) {
-      context.strokeStyle =
-        `rgba(24, 91, 88, ${opacity})`
-
-      context.lineWidth = 1
-
-      context.beginPath()
-      context.moveTo(fromX, fromY)
-      context.lineTo(toX, toY)
-      context.stroke()
+      ctx.strokeStyle = `rgba(24, 91, 88, ${opacity})`
+      ctx.lineWidth = 1
+      ctx.beginPath()
+      ctx.moveTo(fromX, fromY)
+      ctx.lineTo(toX, toY)
+      ctx.stroke()
     }
 
     function draw(step: number) {
-      context.clearRect(
-        0,
-        0,
-        width,
-        height,
-      )
+      ctx.clearRect(0, 0, width, height)
 
       const centerX = width / 2
       const centerY = height / 2
@@ -424,31 +420,17 @@ export default function Tecnologias() {
     }
 
     function resize() {
-      width = surface.clientWidth
-      height = surface.clientHeight
+      width = container.clientWidth
+      height = container.clientHeight
 
       const pixelRatio = Math.min(
         window.devicePixelRatio || 1,
         2,
       )
 
-      canvas.width = Math.round(
-        width * pixelRatio,
-      )
-
-      canvas.height = Math.round(
-        height * pixelRatio,
-      )
-
-      context.setTransform(
-        pixelRatio,
-        0,
-        0,
-        pixelRatio,
-        0,
-        0,
-      )
-
+      canvasEl.width = Math.round(width * pixelRatio)
+      canvasEl.height = Math.round(height * pixelRatio)
+      ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0)
       draw(0)
     }
 

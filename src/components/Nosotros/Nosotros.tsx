@@ -1,18 +1,11 @@
 import { SiGithub } from 'react-icons/si'
 import { FaLinkedinIn } from 'react-icons/fa6'
-
+import type { TeamMember } from '../../interfaces/TeamMember'
 import lucasPhoto from '../../assets/team/lucas-caceres.jpg'
 
 import './Nosotros.css'
 
-type TeamMember = {
-  name: string
-  role: string
-  description: string
-  photo?: string
-  linkedin?: string
-  github?: string
-}
+
 
 const values = [
   {
