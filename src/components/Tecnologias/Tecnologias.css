@@ -37,7 +37,7 @@
    CANVAS
 ======================================== */
 
-.technology-network__canvas {
+.technology-network > .particle-background {
   position: absolute;
 
   inset: 0;
@@ -80,49 +80,14 @@
 
   border-radius: 50%;
 
-  box-shadow:
-    0 22px 60px
-      rgba(16, 37, 42, 0.09),
-
-    0 0 0 10px
-      rgba(255, 255, 255, 0.45);
+  box-shadow: none;
 
   z-index: 3;
 }
 
-.technology-network__center::before {
-  content: '';
 
-  position: absolute;
 
-  inset: 10px;
 
-  border:
-    1px solid
-    rgba(0, 151, 135, 0.20);
-
-  border-radius: 50%;
-}
-
-.technology-network__center::after {
-  content: '';
-
-  position: absolute;
-
-  inset: -11px;
-
-  border:
-    1px solid
-    rgba(0, 151, 135, 0.10);
-
-  border-radius: 50%;
-
-  animation:
-    centerPulse
-    4s
-    ease-in-out
-    infinite;
-}
 
 .technology-network__center img {
   position: relative;
@@ -141,21 +106,12 @@
 ======================================== */
 
 .tech-node {
-  --node-x: 0px;
-  --node-y: 0px;
-
   position: absolute;
 
   transform:
-    translate(-50%, -50%)
-    translate(
-      var(--node-x),
-      var(--node-y)
-    );
+    translate(-50%, -50%);
 
   z-index: 4;
-
-  will-change: transform;
 }
 
 
@@ -181,11 +137,9 @@
 
   border-radius: 50%;
 
-  box-shadow:
-    0 10px 30px
-      rgba(16, 37, 42, 0.07);
+  box-shadow: none;
 
-  backdrop-filter: blur(7px);
+
 
   cursor: default;
 
@@ -233,7 +187,7 @@
 
 .tech-node__bubble:hover,
 .tech-node__bubble:focus-visible {
-  transform: scale(1.14);
+
 
   background: #008f80;
 
@@ -241,12 +195,7 @@
 
   color: #ffffff;
 
-  box-shadow:
-    0 17px 42px
-      rgba(0, 143, 128, 0.20),
-
-    0 0 0 7px
-      rgba(0, 143, 128, 0.07);
+  box-shadow: 0 0 0 3px rgba(0, 143, 128, 0.08);
 
   outline: none;
 
@@ -379,22 +328,6 @@
    CENTER PULSE
 ======================================== */
 
-@keyframes centerPulse {
-  0%,
-  100% {
-    transform: scale(1);
-
-    opacity: 0.4;
-  }
-
-  50% {
-    transform: scale(1.07);
-
-    opacity: 0.8;
-  }
-}
-
-
 /* ========================================
    MOBILE LIST
 ======================================== */
@@ -486,12 +419,4 @@
 
 @media (
   prefers-reduced-motion: reduce
-) {
-  .technology-network__center::after {
-    animation: none;
-  }
-
-  .tech-node__bubble {
-    transition: none;
-  }
-}
+) {}

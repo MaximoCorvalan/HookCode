@@ -1,8 +1,6 @@
-import { SiGithub } from 'react-icons/si'
+
 import { FaLinkedinIn } from 'react-icons/fa6'
-import type { TeamMember } from '../../interfaces/TeamMember'
-import lucasPhoto from '../../assets/team/lucas-caceres.jpg'
-import maximoPhoto from '../../assets/team/maximo-corvalan.jpg'
+import team from '../../MockData/teamMember'
 
 import './Nosotros.css'
 
@@ -29,34 +27,6 @@ const values = [
   },
 ]
 
-const team: TeamMember[] = [
-  {
-    name: 'Lucas Caceres',
-    role: 'Co-Founder · Automation, Data & AI',
-    description:
-      'Combina desarrollo, automatización, datos e inteligencia artificial para construir soluciones aplicadas a procesos reales.',
-    photo: lucasPhoto,
-    linkedin:
-      'https://www.linkedin.com/in/lucas-caceres-898b35275',
-    github: 'https://github.com/Luc-CS',
-  },
-  {
-    name: 'Máximo Corvalán',
-    role: 'Co-Founder · Software Engineering',
-    description:
-      'Desarrollador de software enfocado en aplicaciones, APIs e integraciones, con experiencia en soluciones para automatización industrial.',
-      photo: maximoPhoto  ,
-      linkedin:
-        'https://github.com/MaximoCorvalan',
-      github: 'https://github.com/MaximoCorvalan',
-  },
-  {
-    name: 'Juan Pablo Coceres',
-    role: 'Co-Founder',
-    description:
-      'Forma parte del equipo fundador de HookCode y participa en el desarrollo de soluciones tecnológicas.',
-  },
-]
 
 export default function Nosotros() {
   return (
@@ -227,7 +197,7 @@ export default function Nosotros() {
                   {member.description}
                 </p>
 
-                {(member.linkedin || member.github) && (
+                {(member.linkedin ) && (
                   <div
                     className="team-card__socials"
                     aria-label={`Redes de ${member.name}`}
@@ -243,16 +213,7 @@ export default function Nosotros() {
                       </a>
                     )}
 
-                    {member.github && (
-                      <a
-                        href={member.github}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`GitHub de ${member.name}`}
-                      >
-                        <SiGithub aria-hidden="true" />
-                      </a>
-                    )}
+                
                   </div>
                 )}
               </div>
