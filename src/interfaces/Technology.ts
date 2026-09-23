@@ -3,7 +3,9 @@ type TechnologySize = 'primary' | 'secondary'
 type Technology = {
   name: string
   category: string
+  color: string
   icon?: IconType
+  image?: string
   wordmark?: string
   x: number
   y: number

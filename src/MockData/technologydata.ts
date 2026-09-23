@@ -1,20 +1,24 @@
 
 import type { Technology } from '../interfaces/Technology'
+import powerAutomateLogo from '../assets/power-automate.svg'
+import { DiMsqlServer } from 'react-icons/di'
+import { TbBrandCSharp } from 'react-icons/tb'
 import {
   SiDocker,
   SiDotnet,
   SiFastapi,
   SiGithub,
   SiNodedotjs,
+  SiN8N,
   SiPostgresql,
   SiPython,
   SiReact,
-  SiSharp,
   SiTypescript,
 } from 'react-icons/si'
 const technologiesData: Technology[] = [
   {
     name: 'React',
+    color: '#61DAFB',
     category: 'Frontend',
     icon: SiReact,
     x: 0.10,
@@ -23,6 +27,7 @@ const technologiesData: Technology[] = [
   },
   {
     name: 'Python',
+    color: '#3776AB',
     category: 'Backend & IA',
     icon: SiPython,
     x: 0.90,
@@ -31,6 +36,7 @@ const technologiesData: Technology[] = [
   },
   {
     name: 'Node.js',
+    color: '#5FA04E',
     category: 'Backend',
     icon: SiNodedotjs,
     x: 0.94,
@@ -39,6 +45,7 @@ const technologiesData: Technology[] = [
   },
   {
     name: 'FastAPI',
+    color: '#009688',
     category: 'Backend',
     icon: SiFastapi,
     x: 0.84,
@@ -47,6 +54,7 @@ const technologiesData: Technology[] = [
   },
   {
     name: '.NET',
+    color: '#512BD4',
     category: 'Backend',
     icon: SiDotnet,
     x: 0.17,
@@ -55,8 +63,9 @@ const technologiesData: Technology[] = [
   },
   {
     name: 'C#',
+    color: '#9566CD',
     category: 'Backend',
-    icon: SiSharp,
+    icon: TbBrandCSharp,
     x: 0.06,
     y: 0.48,
     size: 'primary',
@@ -64,6 +73,7 @@ const technologiesData: Technology[] = [
 
   {
     name: 'TypeScript',
+    color: '#3178C6',
     category: 'Frontend',
     icon: SiTypescript,
     x: 0.31,
@@ -72,6 +82,7 @@ const technologiesData: Technology[] = [
   },
   {
     name: 'PostgreSQL',
+    color: '#4169E1',
     category: 'Base de datos',
     icon: SiPostgresql,
     x: 0.69,
@@ -80,6 +91,7 @@ const technologiesData: Technology[] = [
   },
   {
     name: 'Docker',
+    color: '#2496ED',
     category: 'Infraestructura',
     icon: SiDocker,
     x: 0.66,
@@ -88,14 +100,16 @@ const technologiesData: Technology[] = [
   },
   {
     name: 'n8n',
+    color: '#EA4B71',
     category: 'Automatización',
-    wordmark: 'n8n',
+    icon: SiN8N,
     x: 0.36,
     y: 0.91,
     size: 'secondary',
   },
   {
     name: 'GitHub',
+    color: '#181717',
     category: 'Desarrollo',
     icon: SiGithub,
     x: 0.09,
@@ -104,10 +118,29 @@ const technologiesData: Technology[] = [
   },
   {
     name: 'Power BI',
+    color: '#F2C811',
     category: 'Datos & Analytics',
     wordmark: 'PBI',
     x: 0.91,
     y: 0.69,
+    size: 'secondary',
+  },
+  {
+    name: 'SQL Server',
+    category: 'Base de datos',
+    color: '#CC2927',
+    icon: DiMsqlServer,
+    x: 0.50,
+    y: 0.20,
+    size: 'secondary',
+  },
+  {
+    name: 'Power Automate',
+    category: 'Automatización',
+    color: '#0066FF',
+    image: powerAutomateLogo,
+    x: 0.50,
+    y: 0.78,
     size: 'secondary',
   },
 ]

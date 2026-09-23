@@ -16,9 +16,7 @@ export default function Main() {
         aria-labelledby="services-title"
       >
         <div className="section-heading">
-          <span className="section-heading__number" aria-hidden="true">
-            01 /
-          </span>
+         
 
           <p className="section-heading__eyebrow">Nuestros servicios</p>
 

@@ -53,12 +53,7 @@ export default function ComoTrabajamos() {
       aria-labelledby="process-title"
     >
       <div className="section-heading process-heading">
-        <span
-          className="section-heading__number"
-          aria-hidden="true"
-        >
-          02 /
-        </span>
+      
 
         <p className="section-heading__eyebrow">
           Cómo trabajamos

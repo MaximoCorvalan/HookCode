@@ -11,12 +11,7 @@ export default function Tecnologias() {
       aria-labelledby="technologies-title"
     >
       <div className="section-heading technologies-heading">
-        <span
-          className="section-heading__number"
-          aria-hidden="true"
-        >
-          03 /
-        </span>
+    
 
         <p className="section-heading__eyebrow">
           Nuestro stack
@@ -64,11 +59,14 @@ export default function Tecnologias() {
               >
                 <div
                   className={`tech-node__bubble tech-node__bubble--${technology.size}`}
+                  style={{ color: technology.color }}
                   data-network-anchor
                   tabIndex={0}
                   aria-label={`${technology.name}. ${technology.category}`}
                 >
-                  {Icon ? (
+                  {technology.image ? (
+                    <img src={technology.image} alt="" aria-hidden="true" />
+                  ) : Icon ? (
                     <Icon
                       aria-hidden="true"
                     />
@@ -95,6 +93,9 @@ export default function Tecnologias() {
                     </span>
                   </div>
                 </div>
+                <span className="tech-node__name" aria-hidden="true">
+                  {technology.name}
+                </span>
               </div>
             )
           },
@@ -115,8 +116,10 @@ export default function Tecnologias() {
                 className="technology-list__item"
                 key={technology.name}
               >
-                <div className="technology-list__icon">
-                  {Icon ? (
+                <div className="technology-list__icon" style={{ color: technology.color }}>
+                  {technology.image ? (
+                    <img src={technology.image} alt="" aria-hidden="true" />
+                  ) : Icon ? (
                     <Icon
                       aria-hidden="true"
                     />
