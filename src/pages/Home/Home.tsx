@@ -1,4 +1,5 @@
 import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 import HookCode from '../../components/HookCodeImage/HookCode'
 import Main from '../../components/Main/Main'
 import './Home.css'
@@ -12,5 +13,6 @@ export default function Home() {
     <HookCode />
     <Header />
     <Main />
+    <Footer />
   </>
 }
