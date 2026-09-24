@@ -17,7 +17,6 @@ export default function Main() {
       >
         <div className="section-heading">
          
-
           <p className="section-heading__eyebrow">Nuestros servicios</p>
 
           <h2 id="services-title">Tecnología aplicada a problemas reales.</h2>

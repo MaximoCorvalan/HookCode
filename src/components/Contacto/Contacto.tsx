@@ -1,7 +1,37 @@
-﻿import { FiMail, FiMapPin, FiSend } from 'react-icons/fi'
+﻿import emailjs from '@emailjs/browser'
+import { useRef, useState } from 'react'
+import { FiMail, FiMapPin, FiSend } from 'react-icons/fi'
 import './Contacto.css'
 
 export default function Contacto() {
+  const formRef = useRef<HTMLFormElement>(null)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    if (!formRef.current) return
+
+    const serviceId = 'service_x4g2eyr'
+    const templateId = 'template_jklzaqn'
+    const publicKey = 'KvJb-XbQ-5mWZLtcb'
+
+    if (!templateId || !publicKey) {
+      setStatus('error')
+      return
+    }
+
+    setStatus('sending')
+
+    try {
+      await emailjs.sendForm(serviceId, templateId, formRef.current, { publicKey })
+      formRef.current.reset()
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
+  }
+
   return (
     <section id="contacto" className="home-section contact-section" aria-labelledby="contact-title">
       <div className="contact-section__intro">
@@ -30,7 +60,7 @@ export default function Contacto() {
         </div>
       </div>
 
-      <form className="contact-form" aria-label="Formulario de contacto" onSubmit={(event) => event.preventDefault()}>
+      <form ref={formRef} className="contact-form" aria-label="Formulario de contacto" onSubmit={handleSubmit}>
         <div className="contact-form__field">
           <label htmlFor="contact-subject">Asunto</label>
           <input id="contact-subject" name="subject" type="text" placeholder="¿En qué podemos ayudarte?" required />
@@ -44,8 +74,10 @@ export default function Contacto() {
           <textarea id="contact-message" name="message" placeholder="Contanos sobre tu proyecto" required />
         </div>
         <button className="contact-form__submit" type="submit">
-          Enviar mensaje <FiSend aria-hidden="true" />
+          {status === 'sending' ? 'Enviando...' : 'Enviar mensaje'} <FiSend aria-hidden="true" />
         </button>
+        {status === 'success' && <p role="status">Mensaje enviado correctamente.</p>}
+        {status === 'error' && <p role="alert">No se pudo enviar el mensaje. Revisá la configuración de EmailJS.</p>}
       </form>
     </section>
   )
