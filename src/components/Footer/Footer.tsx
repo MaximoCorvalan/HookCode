@@ -1,4 +1,3 @@
-import logo from '../../assets/HookCodeLogo-transparent.png'
 import './Footer.css'
 
 export default function Footer() {
