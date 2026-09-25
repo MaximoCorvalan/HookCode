@@ -6,6 +6,7 @@ import ComoTrabajamos from '../ComoTrabajamos/ComoTrabajamos'
 import Nosotros from '../Nosotros/Nosotros'
 import ServicesCard from '../ServicesCard/ServicesCard'
 import Tecnologias from '../Tecnologias/Tecnologias'
+import FadeIn from '../FadeIn/FadeIn'
 
 export default function Main() {
   return (
@@ -34,10 +35,20 @@ export default function Main() {
         </div>
       </section>
 
+      <FadeIn>
+
       <ComoTrabajamos />
-      <Tecnologias />
-      <Nosotros />
-      <Contacto />
+      </FadeIn>
+
+      <FadeIn>
+        <Tecnologias />
+      </FadeIn>
+      <FadeIn>
+        <Nosotros />
+      </FadeIn>
+      <FadeIn>
+        <Contacto />
+      </FadeIn>
     </main>
   )
 }
